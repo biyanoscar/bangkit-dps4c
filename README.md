@@ -29,7 +29,7 @@ The application will run on port 5000.
     gcloud components install app-engine-python
     ```
 
-4. Set the project as your gcloud default with this command:
+4. Set the project as your gcloud default with this command. Change MY-PROJECT-ID according to your respective PROJECT-ID
     ```
     gcloud config set project MY-PROJECT-ID
     ```
