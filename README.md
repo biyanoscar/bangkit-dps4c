@@ -25,27 +25,27 @@ The application will run on port 5000.
 2. On local computer, install the gcloud SDK/CLI
 
 3. Install the App Engine extension
-```
-gcloud components install app-engine-python
-```
+    ```
+    gcloud components install app-engine-python
+    ```
 
 4. Set the project as your gcloud default with this command:
-```
-gcloud config set project MY-PROJECT-ID
-```
+    ```
+    gcloud config set project MY-PROJECT-ID
+    ```
 
 5. Enable the Cloud Build API
-```
-gcloud services enable cloudbuild.googleapis.com
-```
+    ```
+    gcloud services enable cloudbuild.googleapis.com
+    ```
 
 6. Initialize App Engine for our project
-```
-gcloud app create --project=MY-PROJECT-ID
-```
+    ```
+    gcloud app create --project=MY-PROJECT-ID
+    ```
 
 7. Deploy to App Engine
-```
-gcloud app deploy
-```
+    ```
+    gcloud app deploy
+    ```
 
