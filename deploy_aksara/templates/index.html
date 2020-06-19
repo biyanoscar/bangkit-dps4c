@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aksara Jawa Handwritten text recognition using keras</title>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/material-dashboard.css') }}"/>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}"/>
+</head>
+<body>
+  <div class="page-header" style="background-image: url('http://cdn.backgroundhost.com/backgrounds/subtlepatterns/wood_pattern.png'); ">
+    <div class="container">
+      <div class="row">
+        <div class="card card-chart" id="main-card">
+          <div class="card-header card-header-primary text-center">
+            <h2 class="card-title">Aksara Jawa Handwritten CNN</h2>
+            <p>Brush thickness:</p>
+            <input type="range" min="5" max="30" value="10" id="myRange" />
+            <p>Value: <span id="sliderValue"></span></p>
+          </div>
+          <div class="card-body canvasDiv" id="canvasDiv">
+            <canvas id="canvas" width="280" height="280" style="padding-bottom: 20px">
+            </canvas>
+            <div style="text-align:center;">
+              <button class="btn btn-success myButton" href="#" role="button">Predict</button>
+              <button class="btn btn-primary" href="#" id="clearButton" role="button">Clear</button>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <div class="text-center">
+              <p id="result">Prediction Result</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="{{ url_for('static',filename='js/core/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/core/popper.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/core/bootstrap-material-design.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
+
+
+  <script src="{{ url_for('static',filename='js/index.js') }}">
+  </script><script type="text/javascript">
+  $(".myButton").click(function() {
+    var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    var canvasObj = document.getElementById("canvas");
+    var img = canvasObj.toDataURL();
+    $.ajax({
+      type: "POST",
+      url: $SCRIPT_ROOT + "/predict/",
+      data: img,
+      success: function(data){
+        $('#result').text(' Predicted Output: '+data);
+      }
+    });
+  });
+
+  $("#canvas").bind("wheel mousewheel", function(e) {e.preventDefault()});
+</script>
+</body>
+</html>

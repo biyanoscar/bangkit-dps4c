@@ -1,0 +1,39 @@
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+
+#main-card{
+  position: static;
+  background: gainsboro;
+}
+
+.bodyDiv{
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .header,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+}
+
+.canvasDiv{
+  display: flow-root;
+  text-align: center;
+}
+
+#canvasDiv{
+  position: static;
+}
+
+#result{
+  font-size: large;
+}
+
+#canvas {
+  touch-action: none;
+}
