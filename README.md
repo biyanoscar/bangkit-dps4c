@@ -1,5 +1,6 @@
 <h1 align="center">Welcome to Aksara Jawa Classification Application!</h1>
-![Aksara Jawa apps](https://user-images.githubusercontent.com/42605366/85228458-b572de00-b40d-11ea-8fda-47369983bcab.jpg)
+
+![aksara_screenshot](https://user-images.githubusercontent.com/42605366/85229007-64fd7f80-b411-11ea-8312-c95fd4550093.png)
 
 
 Final Project Bangkit Denpasar
