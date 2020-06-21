@@ -33,16 +33,22 @@ model.load_weights(MODEL_WEIGHTS)
 
 
 def convertImage(imgData1,filename):
+    filepath='./images/'+filename+'.png';
+    # create 'images' folder if it doesn't already exist
+    dirname = os.path.dirname(filepath)
+    if not os.path.exists(dirname):
+        os.makedirs(dirname)
+
     imgstr = re.search(r'base64,(.*)', str(imgData1)).group(1)
-    with open('images/'+filename+'.png', 'wb') as output:
+    with open(filepath, 'wb') as output:
         output.write(base64.b64decode(imgstr))
 
 @app.route('/')
 def index():
     return render_template("index.html")
 
-# make empty image folder
-@app.route('/makeempty/')
+# clear images files on image folder
+@app.route('/clearimages/')
 def makeempty():
     mypath = "images"
     for root, dirs, files in os.walk(mypath):
@@ -50,6 +56,7 @@ def makeempty():
             os.remove(os.path.join(root, file))
     return redirect('/')
 
+# create prediction
 @app.route('/predict/', methods=['GET', 'POST'])
 def predict():
     filename = str(uuid.uuid4()) #random name
