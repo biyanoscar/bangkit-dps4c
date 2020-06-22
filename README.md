@@ -17,7 +17,7 @@ You can access application on https://bangkit-dps4-c-0001.uc.r.appspot.com/
 ## Improved Model
 Our dataset are taken from kaggle https://www.kaggle.com/phiard/aksara-jawa
 
-The process of making the Tensorflow model can be seen in [Model CNN Aksara Jawa Improved](aksara_DPS4C_CNN_Improved.ipynb). After make model, we export it so we create app that use that model.
+The process of making the Tensorflow model can be seen in [Model CNN Aksara Jawa Improved](aksara_DPS4C_CNN_Improved.ipynb). After make model, we export our tensorflow model to external file (model.h5 & model.json).
 
 **Improved result:**
 - The model is small in size
@@ -26,7 +26,7 @@ The process of making the Tensorflow model can be seen in [Model CNN Aksara Jawa
 
 ## Web App source code
 - First you can clone the source code. The web application source code is on [deploy_aksara](deploy_aksara/) folder
-- Export models from notebooks are placed in the folder [deploy_aksara/model/](deploy_aksara/model/)
+- We deploy our tensorflow model on this application. Our models (model.h5 & model.json) are placed in the model folder [deploy_aksara/model/](deploy_aksara/model/). If you make model yourself, you can put it in that folder too.
 - To using this app on local machine, run app using this command to start Flask API
 ```
 python main.py
